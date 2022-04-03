@@ -1,37 +1,42 @@
 package Day3.EmpWage;
-//UC5
+//UC6
 
 public class employeewage {
     public static void main(String[] args) {
-
-        int IsFullTime = 2;
-        int IsPartTime = 1;
-        int PerHourSalary = 20;
-        int workingHour = 0;
-        int totalSalary = 0;
+        int IS_PART_TIME = 1;
+        int IS_FULL_TIME = 2;
+        int EmpRatePerHr = 20;
+        int Max_Salary = 100;
+        int WorkingHour = 0;
+        int TotalSalary = 0;
         int Salary;
+        int TotalWorkingDays = 0;
+        int NumofWorkingDays = 20;
+        int empHrs =0;
 
-        for (int day = 1; day <= 20; day++) {
-            int empCheck = (int) Math.floor(Math.random() * 10) % 2;
-            switch (empCheck) {
-
+        while (WorkingHour <= Max_Salary && TotalWorkingDays < NumofWorkingDays)
+        {
+            TotalWorkingDays++;
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch(empCheck)
+            {
                 case 0:
-                    workingHour = 8;
+                    empHrs = 8;
                     break;
 
                 case 1:
-                    workingHour = 4;
+                    empHrs = 4;
                     break;
 
                 case 2:
-                    workingHour = 0;
+                    empHrs = 0;
                     break;
             }
-            Salary = workingHour * PerHourSalary;
-            totalSalary = totalSalary + Salary;
-
+            WorkingHour += empHrs;
+            System.out.println("Day#: " + TotalWorkingDays + " Emp Hr " + empHrs );
         }
-        System.out.println("Employee has earned total salary in a month is: " + totalSalary);
+        int totalEmpWage = WorkingHour * EmpRatePerHr;
+        System.out.println("total Emp Wage " + totalEmpWage);
 
     }
 }
