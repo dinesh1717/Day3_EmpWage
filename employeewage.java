@@ -1,33 +1,37 @@
 package Day3.EmpWage;
-//UC4
+//UC5
 
 public class employeewage {
     public static void main(String[] args) {
-        int EmpWagePerHr = 20;
-        int EmpHr = 8;
-        int IsFullTime = 1;
-        int IsPartTime = 2;
-        int Salary = 0;
 
-        int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-        switch (empCheck) {
-            case 0:
-                EmpHr = 8;
-                Salary = (EmpHr * EmpWagePerHr);
-                System.out.println("Employee salary for full time is: " + Salary);
-                break;
+        int IsFullTime = 2;
+        int IsPartTime = 1;
+        int PerHourSalary = 20;
+        int workingHour = 0;
+        int totalSalary = 0;
+        int Salary;
 
-            case 1:
-                EmpHr = 4;
-                Salary = (EmpHr * EmpWagePerHr);
-                System.out.println("Employee salary for part time is: " + Salary);
-                break;
+        for (int day = 1; day <= 20; day++) {
+            int empCheck = (int) Math.floor(Math.random() * 10) % 2;
+            switch (empCheck) {
 
-            case 2:
-                EmpHr = 0;
-                Salary = (EmpHr * EmpWagePerHr);
-                System.out.println("Employee salary for Absent  is: " + Salary);
-                break;
+                case 0:
+                    workingHour = 8;
+                    break;
+
+                case 1:
+                    workingHour = 4;
+                    break;
+
+                case 2:
+                    workingHour = 0;
+                    break;
+            }
+            Salary = workingHour * PerHourSalary;
+            totalSalary = totalSalary + Salary;
+
         }
+        System.out.println("Employee has earned total salary in a month is: " + totalSalary);
+
     }
 }
