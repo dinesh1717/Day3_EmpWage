@@ -1,26 +1,24 @@
 package Day3.EmpWage;
-import java.util.Scanner;
-//UC1
+//UC3
 
 public class employeewage {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
+        int EmpWagePerHr = 20;
+        int EmpHr = 8;
+        int IsFullTime = 1;
+        int IsPartTime = 2;
+        int Salary = 0;
 
-        System.out.println("Enter numbers of hours worked");
-        Scanner scan = new Scanner(System.in);
-        double totalHoursWorked = scan.nextInt();
-        double standardWages = 20;
-        int standardHours = 8;
-        double totalWage;
-        if (totalHoursWorked > 8) {
-            totalWage = (standardHours * totalHoursWorked) + (totalHoursWorked - standardHours);
-        } else if (totalHoursWorked < 8) {
-            totalWage = standardWages * totalHoursWorked;
-        } else {
-            totalWage = standardWages * standardHours;
-        }
-        System.out.println("MY total wages of full day is:" + totalWage);
+        double empCheck = Math.floor(Math.random() * 10) % 3;
+        if (empCheck == IsFullTime) {
+            Salary = (EmpHr * EmpWagePerHr);
+            System.out.println("Employee salary for full time is: " + Salary);
+        } else if (empCheck == IsPartTime) {
+            EmpHr = 4;
+            Salary = (EmpHr * EmpWagePerHr);
+            System.out.println("Employee salary for part time is: " + Salary);
+        } else
+            System.out.println("Employee salary for absent is :" + Salary);
 
     }
 }
-
